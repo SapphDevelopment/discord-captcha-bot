@@ -13,18 +13,23 @@ const event: EventInterface = {
   name: Events.GuildMemberAdd,
   options: { once: false, rest: false },
   execute: async (member: GuildMember, client: DiscordClient) => {
+    const { guild, id } = member;
+    if (!guild) return;
+
     let messages = {
-      success: `${client.config.emojis.success} Thanks for joining us! You have now gained access to the server.`,
+      success: `${client.config.emojis.success} Thanks for joining **${guild.name}**! You have now gained access to the server.`,
       failed: `${client.config.emojis.error} Oh no! You failed the verification stage. Please try again.`,
       timedout: `${client.config.emojis.error} Oh no! You failed! Next time, be a little faster.`,
       wrongCode: `${client.config.emojis.error} Oh no! You sent me the wrong captcha. Please try again.`,
-      dmDisabled: `${client.config.emojis.error} Oh no! DMs are disabled.`,
+      dmDisabled: `${client.config.emojis.error} Oh no! Your DMs are disabled.`,
       roleInvalid: `${client.config.emojis.error} Oh no! I couldn't find the verification role. Please contact a staff member.`,
-      description: `In order to prove you have feelings, send a message with the letters and numbers highlighted in blue. You have three attempts -- good luck!`,
+      description: `Please type the captcha below to be able to access **${guild.name}**.`,
+      notes: [
+        `1. Type out the traced colored characters from left to right.`,
+        `2. Ignore the decoy characters spread-around.`,
+        `3. You don't have to respect characters cases (upper/lower case)!`,
+      ].join("\n"),
     };
-
-    const { guild, id } = member;
-    if (!guild) return;
 
     const settings = await client.db.guild.findUnique({
       where: { id: guild.id },
@@ -60,6 +65,8 @@ const event: EventInterface = {
             })
             .setColor(client.config.colors.theme)
             .setDescription(messages.description)
+            .addFields({ name: `Additional Notes:`, value: messages.notes })
+            .setFooter({ text: `Verification Period: 2 minutes` })
             .setImage(`attachment://captcha.png`),
         ],
         files: [attachment],
@@ -71,7 +78,7 @@ const event: EventInterface = {
     const filter = (msg: Message) => msg.author.id === id;
     const collector = member.dmChannel?.createMessageCollector({
       filter,
-      time: 60000,
+      time: 120000,
       max: 3,
     });
 
