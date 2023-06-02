@@ -1,0 +1,41 @@
+{
+  "name": "discord",
+  "version": "1.0.0",
+  "description": "A simple Discord bot made in discord.js typescript",
+  "main": "dist/cluster.js",
+  "type": "module",
+  "scripts": {
+    "start": "node dist/index.js",
+    "build": "npx tsc",
+    "dev": "npx tsc && node dist/index.js",
+    "watch": "npx tsc -w"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SapphireDevs/discord-captcha-bot.git"
+  },
+  "keywords": [
+    "discord",
+    "discordjs",
+    "typescript",
+    "captcha",
+    "verification"
+  ],
+  "author": "Ducko#7068",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/SapphireDevs/discord-captcha-bot/issues"
+  },
+  "homepage": "https://github.com/SapphireDevs/discord-captcha-bot#readme",
+  "devDependencies": {
+    "prisma": "^4.14.1",
+    "typescript": "^5.0.4"
+  },
+  "dependencies": {
+    "@prisma/client": "^4.14.1",
+    "captcha-canvas": "^3.2.1",
+    "discord-hybrid-sharding": "^2.1.2",
+    "discord.js": "^14.11.0",
+    "dotenv": "^16.0.3"
+  }
+}
