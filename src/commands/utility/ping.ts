@@ -7,7 +7,6 @@ import {
 } from "discord.js";
 
 const command: CommandInterface = {
-  cooldown: 3, // In seconds
   data: new SlashCommandBuilder()
     .setName("ping")
     .setDescription("Ping bot to see if it is alive")

@@ -1,13 +1,13 @@
 {
   "name": "discord",
-  "version": "1.0.0",
+  "version": "1.2.0",
   "description": "A simple Discord bot made in discord.js typescript",
-  "main": "dist/cluster.js",
+  "main": "dist/bot.js",
   "type": "module",
   "scripts": {
-    "start": "node dist/index.js",
+    "start": "node dist/bot.js",
     "build": "npx tsc",
-    "dev": "npx tsc && node dist/index.js",
+    "dev": "npx tsc && node dist/bot.js",
     "watch": "npx tsc -w"
   },
   "repository": {
@@ -34,7 +34,6 @@
   "dependencies": {
     "@prisma/client": "^4.14.1",
     "captcha-canvas": "^3.2.1",
-    "discord-hybrid-sharding": "^2.1.2",
     "discord.js": "^14.11.0",
     "dotenv": "^16.0.3"
   }

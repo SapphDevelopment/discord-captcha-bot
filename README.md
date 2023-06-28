@@ -1,17 +1,18 @@
 # Discord Captcha Bot
 
+[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/J3J1FVEH0)
+
 > If you need more information about these projects go to [Project Discord's Page](https://github.com/SapphireDevs/project-discord)
 
 This is a Discord.js bot developed by Sapphire Devs. It serves as a simple captcha verification bot with additional features such as Discord sharding, slash command handling, event handling, error handling, and verification commands.
 
 ## Features
 
-1. Discord Sharding (Discord-Hybrid-Sharding)
-2. Slash Command Handling + SubCommand Handling
-3. Event Handler
-4. Simple Error Handling
-5. Verification Commands
-6. Captcha Verification on join
+1. Slash Command Handling + SubCommand Handling
+2. Event Handler
+3. Simple Error Handling
+4. Verification Commands
+5. Captcha Verification on join
 
 ## Technologies Used
 
@@ -21,7 +22,6 @@ The bot is built using the following technologies:
 - [TypeScript](https://www.typescriptlang.org/)
 - [Prisma](https://www.prisma.io/)
 - [Discord.js](https://discord.js.org/)
-- [Discord Hybrid Sharding](https://www.npmjs.com/package/discord-hybrid-sharding)
 - [Captcha Canvas](https://captcha-canvas.js.org/)
 
 ## How to Contribute
@@ -37,7 +37,7 @@ If you have any improvements or suggestions, you are welcome to contribute to th
 You can join Sapphire Devs on the following platforms:
 
 - [InstantGaming Referral](https://www.instant-gaming.com/?igr=sapphiredevs)
-- [SapphireDevs Discord](https://discord.gg/rTT52gJC3J)
+- [SapphireDevs Discord](https://discord.gg/sapphiredevs-1044098950455627867)
 - [Personal Discord](https://discord.gg/TKz7BMwEap)
 
 ## Contributors

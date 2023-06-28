@@ -1,6 +1,6 @@
 import { DiscordClient } from "../../bot.js";
 import { CommandInterface, EventInterface } from "../../typings/index";
-import { Events, ChatInputCommandInteraction, Collection } from "discord.js";
+import { Events, ChatInputCommandInteraction } from "discord.js";
 
 const event: EventInterface = {
   name: Events.InteractionCreate,
@@ -19,37 +19,6 @@ const event: EventInterface = {
         ephemeral: true,
       });
     }
-
-    /**
-     * Cooldown
-     */
-    const { cooldowns } = client;
-    const defaultCooldownDuration = 5;
-    if (!cooldowns.has(command.data.name)) {
-      cooldowns.set(command.data.name, new Collection());
-    }
-    let timestamps = cooldowns.get(command.data.name);
-    if (!timestamps) {
-      timestamps = new Collection<string, number>();
-      cooldowns.set(command?.data.name, timestamps);
-    }
-
-    const now = Date.now();
-    const cooldownAmount = (command.cooldown ?? defaultCooldownDuration) * 1000;
-    if (timestamps?.has(interaction.user.id)) {
-      const expirationTime =
-        timestamps.get(interaction.user.id)! + cooldownAmount;
-      if (now < expirationTime) {
-        const expiredTimestamp = Math.round(expirationTime / 1000);
-        return interaction.reply({
-          content: `Please wait <t:${expiredTimestamp}:R> more second(s) before reusing the \`${command.data.name}\` command.`,
-          ephemeral: true,
-        });
-      }
-    }
-
-    timestamps?.set(interaction.user.id, now);
-    setTimeout(() => timestamps?.delete(interaction.user.id), cooldownAmount);
 
     const subcommand = interaction.options.getSubcommand(false);
     try {
