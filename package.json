@@ -1,5 +1,5 @@
 {
-  "name": "discord",
+  "name": "discord-captcha-bot",
   "version": "1.2.0",
   "description": "A simple Discord bot made in discord.js typescript",
   "main": "dist/bot.js",
